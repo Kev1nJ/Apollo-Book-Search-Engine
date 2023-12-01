@@ -13,7 +13,7 @@ const resolvers = {
   },
   Mutation: {
     addUser: async (username, email, password) => {
-      // Create and return the new School object
+      // Create and return the new object
       return await User.create({ username, email, password });
     },
   },
