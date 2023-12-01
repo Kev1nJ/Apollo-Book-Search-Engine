@@ -23,9 +23,27 @@ type User {
   }
 
   type Mutation {
-    # Set the required fields for new schools
-    addUser(username: String, email: String, password: String): User
-  }
+  addUser(username: String, email: String, password: String): Auth
+  login(email: String, password: String): Auth
+  saveBook(input: BookInput): User
+  removeBook(bookId: ID): User
+}
+
+type Auth {
+  token: String!
+  user: User!
+}
+
+
+input BookInput {
+  authors: [String]
+  description: String
+  title: String
+  externalBookId: ID
+  image: String
+  link: String
+}
+
 `;
 
 module.exports = typeDefs;
